@@ -1,0 +1,12 @@
+{
+  "name": "isaac-yong-utilities",
+  "displayName": "isaac-yong-utilities",
+  "expo": {
+    "name": "isaac-yong-utilities",
+    "slug": "isaac-yong-utilities",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
