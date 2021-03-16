@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useRef } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-
+import { Audio } from 'expo-av'
 
 export default function App() {
 
@@ -52,17 +52,24 @@ export default function App() {
         startTime.current = Date.now()
     }
 
-    const handlePlay = () => {
+    const handlePlay = async () => {
         console.log('Button is tapped')
 
+        const soundObject = new Audio.Sound()
 
-        if(!isPlaying) {
+        let source = require('./assets/audios/metronome-sound.mp3')
 
-            setIsPlaying(true)
-        } else {
+        await soundObject.loadAsync(source)
+        soundObject.setIsLoopingAsync(true)
 
-            setIsPlaying(false)
-        }
+        console.log(source)
+
+        setInterval(async () => {
+                await soundObject.playAsync()
+
+        }, 1/bpm/60 * 1000)
+
+
 
     }
 
